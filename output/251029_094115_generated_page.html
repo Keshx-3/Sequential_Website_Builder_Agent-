@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The AI Language | Master AI Agents & Protocols</title>
+    <meta name="description" content="Discover The AI Language, your playground for mastering AI Agent protocols, development, and groundbreaking applications. Start your adventure in AI agent mastery!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #7B61FF;
+            --accent-color: #00CED1;
+            --background-light-neutral: #F8F9FA;
+            --text-dark-neutral: #212529;
+            --subtle-gray: #CED4DA;
+            --white-color: #FFFFFF;
+
+            /* Spacing Units */
+            --spacing-small: 8px;
+            --spacing-medium: 16px;
+            --spacing-large: 24px;
+            --spacing-x-large: 32px;
+            --spacing-xx-large: 96px;
+            --grid-gap: 32px;
+        }
+
+        /* Global Styles & Typography */
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-dark-neutral);
+            background-color: var(--background-light-neutral);
+            font-size: 18px; /* Body Text (p) */
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            margin: 0;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark-neutral);
+            margin-top: 0;
+            margin-bottom: var(--spacing-medium);
+        }
+
+        h1 {
+            font-size: 64px;
+            font-weight: 800; /* Extra Bold */
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: 40px;
+            font-weight: 700; /* Bold */
+            line-height: 1.2;
+        }
+
+        h3 {
+            font-size: 28px;
+            font-weight: 600; /* Semi-Bold */
+            line-height: 1.3;
+        }
+
+        p {
+            font-size: 18px;
+            font-weight: 400; /* Regular */
+            line-height: 1.6;
+            margin-top: 0;
+            margin-bottom: var(--spacing-medium);
+        }
+
+        a {
+            font-size: 16px; /* Small Text/Links */
+            line-height: 1.5;
+            color: var(--text-dark-neutral);
+            transition: all 0.3s ease-in-out;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        button {
+            font-size: 18px; /* Button Text */
+            font-weight: 600; /* Semi-Bold */
+            font-family: 'Lato', sans-serif; /* Inherit font family */
+        }
+
+        /* Layout & Spacing */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: var(--spacing-large); /* 24px desktop */
+            padding-right: var(--spacing-large); /* 24px desktop */
+        }
+
+        section {
+            padding-top: var(--spacing-xx-large); /* 96px */
+            padding-bottom: var(--spacing-xx-large); /* 96px */
+        }
+
+        /* Core Component Styles - Buttons */
+        .btn {
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600; /* Semi-Bold */
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            display: inline-block; /* To allow padding and transform */
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #6A52E0; /* darken Primary */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(123, 97, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(123, 97, 255, 0.3);
+        }
+
+        .btn-white { /* For CTA in secondary section */
+            background-color: var(--white-color);
+            color: var(--primary-color);
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            border: none;
+        }
+
+        .btn-white:hover {
+            background-color: #E0E0E0; /* light gray */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Core Component Styles - Cards */
+        .card {
+            background-color: var(--white-color);
+            padding: var(--spacing-x-large); /* 32px */
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Core Component Styles - Form Inputs */
+        .form-input {
+            background-color: var(--white-color);
+            padding: var(--spacing-medium); /* 16px */
+            border: 1px solid var(--subtle-gray);
+            border-radius: 8px;
+            font-size: 18px; /* Body Text */
+            color: var(--text-dark-neutral);
+            transition: all 0.3s ease-in-out;
+            width: 100%; /* For flexibility */
+            box-sizing: border-box; /* Include padding in width */
+        }
+
+        .form-input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(123, 97, 255, 0.2);
+            outline: none; /* Remove default outline */
+        }
+
+        .form-input::placeholder {
+            color: var(--subtle-gray);
+        }
+
+        /* Header / Navigation */
+        .header {
+            background-color: var(--white-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            height: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: var(--spacing-medium); /* 16px */
+            padding-bottom: var(--spacing-medium); /* 16px */
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 28px; /* H3 */
+            font-weight: 800; /* Extra Bold */
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: var(--spacing-x-large); /* 32px */
+            align-items: center;
+        }
+
+        .main-nav ul li a {
+            font-size: 16px; /* Small Text */
+            font-weight: 600; /* Semi-Bold */
+            color: var(--text-dark-neutral);
+        }
+
+        .hamburger {
+            display: none; /* Hidden by default on desktop */
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1002;
+        }
+        .hamburger svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--text-dark-neutral);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            background-image: url('https://placehold.co/1920x1080/7B61FF/FFFFFF/png?text=AI+Hero+Illustration'); /* Placeholder */
+            background-size: cover;
+            background-position: center;
+            min-height: calc(100vh - 80px); /* Adjust for header height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white-color);
+            padding-top: var(--spacing-xx-large);
+            padding-bottom: var(--spacing-xx-large);
+        }
+
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Overlay */
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero-section h1 {
+            color: var(--white-color);
+            margin-bottom: var(--spacing-medium); /* 16px */
+        }
+
+        .hero-section p {
+            font-size: 28px; /* H3 */
+            font-weight: 400; /* Regular */
+            max-width: 800px;
+            margin-bottom: var(--spacing-x-large); /* 32px */
+        }
+
+        .hero-section .btn-primary:hover {
+            background-color: #6A52E0;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(123, 97, 255, 0.5);
+        }
+
+        /* What You'll Discover Section */
+        .what-youll-discover {
+            background-color: var(--background-light-neutral);
+            text-align: center;
+        }
+
+        .what-youll-discover h2 {
+            margin-bottom: var(--spacing-medium); /* 16px */
+        }
+
+        .what-youll-discover .section-description {
+            max-width: 700px;
+            margin: 0 auto var(--spacing-x-large) auto; /* 32px */
+        }
+
+        .what-youll-discover .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--grid-gap); /* 32px */
+            margin-top: var(--spacing-x-large); /* To give space after description */
+        }
+
+        .what-youll-discover .card {
+            text-align: center;
+        }
+
+        .what-youll-discover .card img {
+            width: 64px;
+            height: 64px;
+            margin-bottom: var(--spacing-medium); /* 16px */
+            /* color: var(--primary-color); For SVG icons, but these are placeholders */
+        }
+
+        .what-youll-discover .card h3 {
+            margin-bottom: var(--spacing-small); /* 8px */
+        }
+
+        .what-youll-discover .card p {
+            font-size: 16px; /* Small Text */
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            background-color: var(--white-color);
+            text-align: center;
+        }
+
+        .how-it-works h2 {
+            margin-bottom: var(--spacing-medium); /* 16px */
+        }
+
+        .how-it-works .section-description {
+            max-width: 700px;
+            margin: 0 auto var(--spacing-x-large) auto; /* 32px */
+        }
+
+        .how-it-works .steps-grid {
+            display: flex;
+            gap: var(--spacing-x-large); /* 32px */
+            justify-content: space-around;
+            align-items: flex-start;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            margin-top: var(--spacing-x-large); /* Space after description */
+        }
+
+        .how-it-works .step-item {
+            flex: 1;
+            min-width: 250px; /* Ensure steps don't get too narrow */
+            text-align: center;
+        }
+
+        .how-it-works .step-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            color: var(--white-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: 700; /* Bold */
+            margin: 0 auto var(--spacing-medium) auto; /* 16px */
+        }
+
+        .how-it-works .step-item h3 {
+            margin-bottom: var(--spacing-small); /* 8px */
+        }
+
+        .how-it-works .step-item p {
+            font-size: 16px; /* Small Text */
+        }
+
+        .how-it-works .timeline-graphic {
+            max-width: 80%;
+            height: auto;
+            margin: var(--spacing-xx-large) auto 0 auto; /* 96px top margin */
+            display: block; /* Center image */
+            loading="lazy";
+        }
+
+        /* Why Learn With Us Section */
+        .why-learn-with-us {
+            background-color: var(--background-light-neutral);
+            text-align: center;
+        }
+
+        .why-learn-with-us h2 {
+            margin-bottom: var(--spacing-xx-large); /* 96px */
+        }
+
+        .why-learn-with-us .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--grid-gap); /* 32px */
+        }
+
+        .why-learn-with-us .benefit-item {
+            text-align: center;
+        }
+
+        .why-learn-with-us .benefit-item img {
+            width: 48px;
+            height: 48px;
+            margin-bottom: var(--spacing-medium); /* 16px */
+            /* color: var(--primary-color); */
+        }
+
+        .why-learn-with-us .benefit-item h3 {
+            font-size: 28px; /* H3 */
+            margin-bottom: var(--spacing-small); /* 8px */
+        }
+
+        .why-learn-with-us .benefit-item p {
+            font-size: 16px; /* Small Text */
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--white-color);
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            margin-bottom: var(--spacing-xx-large); /* 96px */
+        }
+
+        .testimonials .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--grid-gap); /* 32px */
+        }
+
+        .testimonials .card {
+            text-align: left; /* Quotes are usually left-aligned */
+        }
+
+        .testimonials .card .quote {
+            font-size: 18px; /* Body Text */
+            font-style: italic;
+            margin-bottom: var(--spacing-medium); /* 16px */
+        }
+
+        .testimonials .author-info {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-small); /* 8px */
+        }
+
+        .testimonials .author-info img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            loading="lazy";
+        }
+
+        .testimonials .author-details p:first-child {
+            font-weight: 600; /* Semi-Bold */
+            font-size: 16px; /* Small Text */
+            margin: 0;
+        }
+
+        .testimonials .author-details p:last-child {
+            font-size: 14px; /* Even smaller text */
+            color: var(--subtle-gray);
+            margin: 0;
+        }
+
+        /* Call to Action (Secondary) Section */
+        .cta-secondary {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            padding-top: var(--spacing-xx-large); /* 96px */
+            padding-bottom: var(--spacing-xx-large); /* 96px */
+            text-align: center;
+        }
+
+        .cta-secondary h2 {
+            color: var(--white-color);
+            margin-bottom: var(--spacing-medium); /* 16px */
+        }
+
+        .cta-secondary .subheading {
+            color: var(--white-color);
+            max-width: 800px;
+            margin: 0 auto var(--spacing-x-large) auto; /* 32px */
+            font-size: 18px; /* Body Text */
+        }
+
+        .cta-secondary .cta-form {
+            margin: var(--spacing-x-large) auto 0 auto; /* 32px top margin */
+            max-width: 500px;
+            display: flex;
+            gap: var(--spacing-medium); /* 16px */
+            align-items: center;
+        }
+
+        .cta-secondary .cta-form input {
+            flex: 1;
+            color: var(--text-dark-neutral); /* Override white color from section */
+        }
+
+        .cta-secondary .cta-form button {
+            white-space: nowrap; /* Prevent button text from wrapping */
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--text-dark-neutral);
+            color: var(--subtle-gray);
+            padding-top: var(--spacing-xx-large); /* 96px */
+            padding-bottom: var(--spacing-xx-large); /* 96px */
+        }
+
+        .footer .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-copyright {
+            font-size: 14px; /* Small Text */
+            margin-right: var(--spacing-x-large); /* 32px */
+            margin-bottom: 0; /* Reset for desktop */
+        }
+
+        .footer-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-medium); /* 16px */
+        }
+
+        .footer-nav ul li a {
+            font-size: 14px; /* Small Text */
+            color: var(--subtle-gray);
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--spacing-medium); /* 16px */
+        }
+
+        .social-links a {
+            color: var(--subtle-gray);
+            width: 24px;
+            height: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none; /* Remove underline from social icons */
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+        .social-links svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor; /* Use current text color for SVG */
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1024px) {
+            h1 {
+                font-size: 52px;
+            }
+            h2 {
+                font-size: 36px;
+            }
+            h3 {
+                font-size: 24px;
+            }
+            p {
+                font-size: 17px;
+            }
+            .btn {
+                font-size: 16px;
+                padding: 12px 24px;
+            }
+            section {
+                padding-top: 64px;
+                padding-bottom: 64px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding-left: var(--spacing-medium); /* 16px tablet/mobile */
+                padding-right: var(--spacing-medium); /* 16px tablet/mobile */
+            }
+            h1 {
+                font-size: 44px;
+            }
+            h2 {
+                font-size: 32px;
+            }
+            h3 {
+                font-size: 22px;
+            }
+            p {
+                font-size: 16px;
+            }
+            .btn {
+                font-size: 16px;
+                padding: 12px 20px;
+            }
+            /* Mobile nav specific styles */
+            .main-nav {
+                display: none; /* Hidden by default on mobile */
+                flex-direction: column;
+                position: absolute;
+                top: 80px; /* Below header */
+                left: 0;
+                width: 100%;
+                background-color: var(--white-color);
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                z-index: 1000;
+                padding-bottom: var(--spacing-medium);
+                overflow-y: auto; /* Enable scrolling for long menus */
+                height: calc(100vh - 80px); /* Full height minus header */
+            }
+            .main-nav.active {
+                display: flex;
+            }
+            .main-nav ul {
+                flex-direction: column;
+                width: 100%;
+                gap: var(--spacing-medium);
+            }
+            .main-nav ul li {
+                width: 100%;
+                text-align: center;
+            }
+            .main-nav ul li a, .main-nav ul li .btn {
+                display: block;
+                padding: var(--spacing-medium) 0;
+                width: calc(100% - var(--spacing-large)); /* Adjust for inner padding */
+                margin: 0 auto;
+            }
+            .main-nav .btn {
+                margin-top: var(--spacing-medium);
+            }
+            .hamburger {
+                display: block;
+            }
+            .header .container {
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+            .hero-section::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0, 0, 0, 0.5); /* Overlay */
+                z-index: 1;
+            }
+            .hero-section h1, .hero-section p, .hero-section .btn {
+                z-index: 2; /* Bring text/button above overlay */
+                position: relative;
+            }
+            .how-it-works .steps-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            .how-it-works .step-item {
+                margin-bottom: var(--spacing-x-large);
+            }
+            .how-it-works .step-item:last-child {
+                margin-bottom: 0;
+            }
+            .cta-secondary .cta-form {
+                flex-direction: column;
+            }
+            .cta-secondary .cta-form input {
+                margin-bottom: var(--spacing-medium);
+            }
+            .footer .container {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+            .footer-copyright {
+                margin-bottom: var(--spacing-medium);
+                margin-right: 0;
+            }
+            .footer-nav ul {
+                justify-content: center;
+                margin-bottom: var(--spacing-medium);
+            }
+            .social-links {
+                margin-bottom: var(--spacing-medium); /* Consistent spacing */
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 36px;
+            }
+            h2 {
+                font-size: 28px;
+            }
+            h3 {
+                font-size: 20px;
+            }
+            p {
+                font-size: 15px;
+            }
+            .btn {
+                font-size: 14px;
+                padding: 10px 18px;
+            }
+            .card {
+                padding: var(--spacing-large);
+            }
+            .what-youll-discover .grid {
+                grid-template-columns: 1fr;
+            }
+            .why-learn-with-us .grid {
+                grid-template-columns: 1fr;
+            }
+            .testimonials .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ================== Header ================== -->
+    <header class="header" id="home">
+        <div class="container">
+            <a href="#" class="logo" aria-label="The AI Language Logo">The AI Language</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#discover">What We Teach</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#about-us">About Us</a></li>
+                    <li><a href="#cta" class="btn btn-primary">Unlock Your Agent Potential!</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger" aria-label="Open navigation menu">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 6H20V8H4V6ZM4 11H20V13H4V11ZM4 16H20V18H4V16Z"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- ================== Hero Section ================== -->
+    <section class="hero-section">
+        <div class="container hero-content">
+            <h1>Ready to Speak the Language of AI Agents?</h1>
+            <p>Your playground for mastering AI Agent protocols, development, and groundbreaking applications awaits!</p>
+            <a href="#discover" class="btn btn-primary">Start Your Adventure!</a>
+        </div>
+    </section>
+
+    <!-- ================== What You'll Discover ================== -->
+    <section class="what-youll-discover" id="discover">
+        <div class="container">
+            <h2>Unleash Your Inner Agent Architect!</h2>
+            <p class="section-description">Dive into the core concepts that power the next generation of intelligent systems. Here’s what you’ll master:</p>
+            <div class="grid">
+                <article class="card">
+                    <img src="https://placehold.co/64x64/7B61FF/FFFFFF/png?text=AI" alt="Icon representing an AI agent">
+                    <h3>Meet Your Future Co-Workers: AI Agents!</h3>
+                    <p>[Engaging description of what AI agents are, their potential, and why they matter.]</p>
+                </article>
+                <article class="card">
+                    <img src="https://placehold.co/64x64/7B61FF/FFFFFF/png?text=MCP" alt="Icon representing data flow, context, or communication">
+                    <h3>The Secret Handshake: Model Context Protocol</h3>
+                    <p>[Clear explanation of its purpose and importance in agent communication.]</p>
+                </article>
+                <article class="card">
+                    <img src="https://placehold.co/64x64/7B61FF/FFFFFF/png?text=AAP" alt="Icon representing multiple agents interacting or a network">
+                    <h3>Orchestrating the Swarm: Agent to Agent Protocol</h3>
+                    <p>[Explanation of how agents interact, collaborate, and form complex systems.]</p>
+                </article>
+                <article class="card">
+                    <img src="https://placehold.co/64x64/7B61FF/FFFFFF/png?text=ADK" alt="Icon representing tools, code, or a toolkit">
+                    <h3>Your Builder's Blueprint: The Agent Development Kit</h3>
+                    <p>[Description of tools, frameworks, and resources for building agents.]</p>
+                </article>
+                <article class="card">
+                    <img src="https://placehold.co/64x64/7B61FF/FFFFFF/png?text=Dev" alt="Icon representing growth, creation, or deployment">
+                    <h3>Bringing Ideas to Life: Agent Development</h3>
+                    <p>[Overview of the practical steps and best practices in building, testing, and deploying agents.]</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================== How It Works ================== -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2>Your Epic Journey, Step-by-Step</h2>
+            <p class="section-description">Brief paragraph outlining the simplicity and effectiveness of the learning process.</p>
+            <div class="steps-grid">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <h3>Explore the Basics:</h3>
+                    <p>Description of starting with foundational knowledge.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <h3>Master the Protocols:</h3>
+                    <p>Description of diving deep into communication and interaction.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <h3>Build & Innovate:</h3>
+                    <p>Description of hands-on development and project creation.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <h3>Join the Community:</h3>
+                    <p>Description of ongoing learning and collaboration.</p>
+                </div>
+            </div>
+            <img src="https://placehold.co/1000x300/00CED1/FFFFFF/png?text=Timeline+Graphic" alt="Flowchart showing steps to AI agent mastery" class="timeline-graphic" loading="lazy">
+        </div>
+    </section>
+
+    <!-- ================== Why Learn With Us ================== -->
+    <section class="why-learn-with-us" id="about-us">
+        <div class="container">
+            <h2>Why Your AI Agent Journey Starts Here!</h2>
+            <div class="grid">
+                <div class="benefit-item">
+                    <img src="https://placehold.co/48x48/7B61FF/FFFFFF/png?text=Fun" alt="Icon representing hands-on fun">
+                    <h3>Hands-On Fun</h3>
+                    <p>[Description about practical, project-based learning.]</p>
+                </div>
+                <div class="benefit-item">
+                    <img src="https://placehold.co/48x48/7B61FF/FFFFFF/png?text=Expert" alt="Icon representing expert guides">
+                    <h3>Expert Guides</h3>
+                    <p>[Description about learning from industry leaders.]</p>
+                </div>
+                <div class="benefit-item">
+                    <img src="https://placehold.co/48x48/7B61FF/FFFFFF/png?text=Community" alt="Icon representing a vibrant community">
+                    <h3>Vibrant Community</h3>
+                    <p>[Description about collaboration and support.]</p>
+                </div>
+                <div class="benefit-item">
+                    <img src="https://placehold.co/48x48/7B61FF/FFFFFF/png?text=Skills" alt="Icon representing future-proof skills">
+                    <h3>Future-Proof Skills</h3>
+                    <p>[Description about acquiring in-demand knowledge.]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================== Testimonials ================== -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>Hear From Our Happy Agent Adventurers!</h2>
+            <div class="grid">
+                <article class="card">
+                    <p class="quote">"The AI Language transformed my understanding of AI agents. The practical examples were incredibly helpful!"</p>
+                    <div class="author-info">
+                        <img src="https://placehold.co/60x60/CED4DA/FFFFFF/png?text=JP" alt="Jane P. headshot">
+                        <div class="author-details">
+                            <p>Jane P.</p>
+                            <p>AI Enthusiast</p>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <p class="quote">"I never thought agent protocols could be so engaging! Highly recommend for anyone entering AI development."</p>
+                    <div class="author-info">
+                        <img src="https://placehold.co/60x60/CED4DA/FFFFFF/png?text=MK" alt="Mark K. headshot">
+                        <div class="author-details">
+                            <p>Mark K.</p>
+                            <p>Software Engineer</p>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <p class="quote">"A fantastic resource for staying ahead in the rapidly evolving world of AI. The community aspect is a huge plus!"</p>
+                    <div class="author-info">
+                        <img src="https://placehold.co/60x60/CED4DA/FFFFFF/png?text=LS" alt="Lisa S. headshot">
+                        <div class="author-details">
+                            <p>Lisa S.</p>
+                            <p>Tech Innovator</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================== Call to Action (Secondary) ================== -->
+    <section class="cta-secondary" id="cta">
+        <div class="container">
+            <h2>Ready to Transform Your AI Skills?</h2>
+            <p class="subheading">Join a community that's building the future, one intelligent agent at a time! Don't miss out on the AI revolution.</p>
+            <a href="#" class="btn btn-white">Enroll Today!</a>
+            <form class="cta-form">
+                <input type="email" placeholder="Enter your email" aria-label="Email for newsletter" class="form-input">
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ================== Footer ================== -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p class="footer-copyright">Copyright © 2023 The AI Language. All rights reserved.</p>
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="social-links">
+                <a href="#" aria-label="Link to Twitter Profile">
+                    <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22.46 6C21.64 6.37 20.76 6.62 19.85 6.74C20.78 6.2 21.5 5.37 21.83 4.34C20.9 4.88 19.9 5.25 18.81 5.48C17.96 4.54 16.71 4 15.35 4C12.68 4 10.43 6.22 10.43 8.94C10.43 9.32 10.47 9.69 10.55 10.05C6.98 9.87 3.92 8.24 1.83 5.67C1.45 6.3 1.25 7.02 1.25 7.79C1.25 9.54 2.17 11.08 3.59 11.96C2.79 11.94 2.05 11.72 1.4 11.37C1.4 11.39 1.4 11.41 1.4 11.43C1.4 13.88 3.16 15.89 5.4 16.34C5.03 16.44 4.64 16.48 4.23 16.48C3.96 16.48 3.69 16.46 3.44 16.41C4.08 18.47 6.04 19.9 8.26 19.93C6.59 21.29 4.41 22 2 22C1.61 22 1.23 21.98 0.85 21.94C3.07 23.3 5.68 24 8.52 24C15.33 24 19.07 18.28 19.07 13.11C19.07 12.94 19.07 12.78 19.06 12.62C19.82 12.06 20.48 11.37 21.03 10.61C21.72 9.8 22.28 8.91 22.46 8C22.46 7.6 22.46 7.2 22.46 6Z"></path>
+                    </svg>
+                </a>
+                <a href="#" aria-label="Link to LinkedIn Profile">
+                    <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 3H5C3.895 3 3 3.895 3 5V19C3 20.105 3.895 21 5 21H19C20.105 21 21 20.105 21 19V5C21 3.895 20.105 3 19 3ZM8 17H5V9H8V17ZM6.5 7.75C5.67157 7.75 5 7.07843 5 6.25C5 5.42157 5.67157 4.75 6.5 4.75C7.32843 4.75 8 5.42157 8 6.25C8 7.07843 7.32843 7.75 6.5 7.75ZM19 17H16V12.7143C16 11.802 15.275 11 14.375 11C13.475 11 12.75 11.802 12.75 12.7143V17H9.75V9H12.75V10.1429C13.292 9.42857 14.156 9 15.0625 9C16.928 9 19 10.9737 19 12.7143V17Z"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.main-nav');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close nav menu when a link is clicked (for mobile)
+        document.querySelectorAll('.main-nav a').forEach(item => {
+            item.addEventListener('click', () => {
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+
+        // Smooth Scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

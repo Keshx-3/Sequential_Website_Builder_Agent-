@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe | AI/ML Engineer Portfolio</title>
+    <meta name="description" content="John Doe's professional portfolio - AI/ML Engineer specializing in machine learning, NLP, and computer vision. View my projects, skills, and experience.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --accent-color: #6c757d;
+            --background-light-neutral: #f8f9fa;
+            --text-dark-neutral: #212529;
+            --subtle-gray: #ced4da;
+            --white-color: #ffffff;
+
+            /* Spacing Units */
+            --spacing-extra-small: 8px;
+            --spacing-small: 16px;
+            --spacing-medium: 24px;
+            --spacing-large: 32px;
+            --spacing-x-large: 80px; /* Section Vertical Padding */
+            --grid-gap: 32px;
+        }
+
+        /* General Page Structure */
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-dark-neutral);
+            background-color: var(--background-light-neutral);
+            scroll-behavior: smooth;
+            margin: 0;
+            line-height: 1.7; /* Body Text (p) line-height */
+            font-size: 18px; /* Body Text (p) font-size */
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding-left: var(--spacing-large); /* 32px desktop */
+            padding-right: var(--spacing-large); /* 32px desktop */
+        }
+
+        section {
+            padding-top: var(--spacing-x-large); /* 80px */
+            padding-bottom: var(--spacing-x-large); /* 80px */
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark-neutral);
+            margin-top: 0;
+            margin-bottom: var(--spacing-medium); /* Default, can be overridden */
+        }
+
+        h1 {
+            font-size: 56px;
+            font-weight: 800; /* Extra Bold */
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: 38px;
+            font-weight: 700; /* Bold */
+            line-height: 1.2;
+        }
+
+        h3 {
+            font-size: 28px;
+            font-weight: 600; /* Semi-Bold */
+            line-height: 1.3;
+        }
+
+        p {
+            font-size: 18px; /* Body Text */
+            font-weight: 400; /* Regular */
+            line-height: 1.7;
+        }
+
+        a {
+            color: var(--text-dark-neutral);
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+            font-size: 16px; /* Navigation Links, Button Text are slightly larger */
+        }
+
+        a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        /* Core Component Styles - Buttons */
+        .btn {
+            border-radius: 8px;
+            font-size: 17px; /* Button Text */
+            font-weight: 600; /* Semi-Bold */
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            display: inline-block; /* For padding and transform */
+            border: none; /* Reset border */
+            text-align: center; /* Center text in button */
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            padding: 14px 28px;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3; /* darken Primary */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-color);
+            padding: 12px 24px;
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
+        }
+
+        /* Core Component Styles - Cards */
+        .card {
+            background-color: var(--white-color);
+            padding: var(--spacing-large); /* 32px */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Core Component Styles - Form Inputs */
+        .form-input {
+            background-color: var(--white-color);
+            padding: var(--spacing-medium); /* 16px */
+            border: 1px solid var(--subtle-gray);
+            border-radius: 6px;
+            font-size: 18px; /* Body Text */
+            color: var(--text-dark-neutral);
+            transition: all 0.3s ease-in-out;
+            width: 100%; /* Make them fill container */
+            box-sizing: border-box; /* Include padding in width */
+        }
+
+        .form-input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+            outline: none; /* Remove default focus outline */
+        }
+
+        .form-input::placeholder {
+            color: var(--subtle-gray);
+        }
+
+        /* Header / Navigation */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            height: 70px;
+            background-color: var(--white-color);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center; /* Vertically center content */
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 10px; /* vertical padding */
+            padding-bottom: 10px; /* vertical padding */
+        }
+
+        .header .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 28px; /* H3 */
+            font-weight: 800; /* Extra Bold */
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .header .main-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: var(--spacing-large); /* 32px */
+            align-items: center;
+        }
+
+        .header .main-nav ul li a {
+            font-size: 16px; /* Navigation Links */
+            font-weight: 600; /* Semi-Bold */
+            color: var(--text-dark-neutral);
+            text-decoration: none;
+        }
+
+        .header .main-nav ul li a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+        
+        .hamburger-menu {
+            display: none; /* Hidden on desktop */
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .hamburger-menu svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--text-dark-neutral);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background-color: var(--background-light-neutral);
+            min-height: calc(100vh - 70px);
+            display: flex;
+            align-items: center;
+            text-align: left; /* Default desktop alignment */
+        }
+
+        .hero-section .hero-content {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-large); /* 32px */
+        }
+
+        .hero-section .headshot {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0; /* Prevent image from shrinking */
+        }
+
+        .hero-section .text-content h1 {
+            font-size: 56px; /* H1 */
+            font-weight: 800; /* Extra Bold */
+            color: var(--text-dark-neutral);
+            margin-bottom: var(--spacing-small); /* 16px */
+        }
+
+        .hero-section .text-content .subtitle {
+            font-size: 28px; /* H3 */
+            font-weight: 600; /* Semi-Bold */
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-medium); /* 24px */
+        }
+
+        .hero-section .text-content .value-proposition {
+            max-width: 700px;
+            margin-bottom: var(--spacing-large); /* 32px */
+        }
+
+        .hero-section .buttons-container {
+            display: flex;
+            gap: var(--spacing-medium); /* 24px */
+        }
+
+        /* About Me Section */
+        .about-me {
+            background-color: var(--white-color);
+        }
+
+        .about-me h2 {
+            margin-bottom: var(--spacing-large); /* 32px */
+            text-align: center; /* Center title */
+        }
+
+        .about-me .content-wrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-large); /* 32px */
+        }
+
+        .about-me .profile-photo {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            flex-shrink: 0;
+            display: block; /* To apply margin auto for centering if block */
+        }
+
+        .about-me .bio {
+            flex-grow: 1;
+        }
+
+        /* Skills Section */
+        .skills {
+            background-color: var(--background-light-neutral);
+            text-align: center;
+        }
+
+        .skills h2 {
+            margin-bottom: var(--spacing-medium); /* 24px */
+        }
+
+        .skills .section-description {
+            max-width: 800px;
+            margin: 0 auto var(--spacing-large) auto; /* 32px bottom margin */
+        }
+
+        .skills .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--grid-gap); /* 32px */
+            margin-top: var(--spacing-large);
+        }
+
+        .skills .skill-category {
+            text-align: left; /* Skills content typically left aligned */
+        }
+
+        .skills .skill-category h3 {
+            font-size: 22px;
+            font-weight: 600; /* Semi-Bold */
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-medium); /* 24px */
+        }
+
+        .skills .skill-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-extra-small); /* 8px */
+        }
+
+        .skills .skill-list li {
+            background-color: rgba(0, 123, 255, 0.1);
+            color: var(--primary-color);
+            padding: var(--spacing-extra-small) var(--spacing-medium); /* 8px 16px */
+            border-radius: 20px;
+            font-size: 14px; /* Small Text */
+            font-weight: 600; /* Semi-Bold */
+            white-space: nowrap;
+        }
+
+        /* Projects Section */
+        .projects {
+            background-color: var(--white-color);
+            text-align: center;
+        }
+
+        .projects h2 {
+            margin-bottom: var(--spacing-medium); /* 24px */
+        }
+
+        .projects .section-description {
+            max-width: 800px;
+            margin: 0 auto var(--spacing-large) auto; /* 32px bottom margin */
+        }
+
+        .projects .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--grid-gap); /* 32px */
+            margin-top: var(--spacing-large);
+        }
+
+        .projects .project-card {
+            display: flex;
+            flex-direction: column;
+            text-align: left; /* Content in card is left aligned */
+        }
+
+        .projects .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: var(--spacing-medium); /* 24px */
+            loading="lazy";
+        }
+
+        .projects .project-card h3 {
+            font-size: 24px;
+            margin-bottom: var(--spacing-extra-small); /* 8px */
+        }
+
+        .projects .project-card .project-description {
+            font-size: 16px; /* Body Text (smaller) */
+            flex-grow: 1; /* Make descriptions fill available space */
+            margin-bottom: var(--spacing-medium); /* 24px */
+        }
+
+        .projects .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-extra-small); /* 8px */
+            margin-bottom: var(--spacing-medium); /* 24px */
+        }
+
+        .projects .project-tags span {
+            background-color: rgba(108, 117, 125, 0.1); /* Accent with transparency */
+            color: var(--accent-color);
+            padding: var(--spacing-extra-small) var(--spacing-medium); /* 8px 16px */
+            border-radius: 20px;
+            font-size: 14px; /* Small Text */
+            font-weight: 600; /* Semi-Bold */
+            white-space: nowrap;
+        }
+
+        .projects .project-actions {
+            display: flex;
+            gap: var(--spacing-small); /* 16px */
+            margin-top: auto; /* Push buttons to the bottom of the card */
+        }
+
+        /* Experience & Education Section */
+        .experience-education {
+            background-color: var(--background-light-neutral);
+            text-align: center;
+        }
+
+        .experience-education h2 {
+            margin-bottom: var(--spacing-large); /* 32px */
+        }
+
+        .experience-education .sub-section h3 {
+            margin-bottom: var(--spacing-medium); /* 24px */
+            text-align: left; /* Sub-titles are left aligned */
+            color: var(--text-dark-neutral);
+        }
+        
+        .experience-education .sub-section {
+            margin-top: var(--spacing-x-large); /* 80px */
+        }
+        .experience-education .sub-section:first-of-type {
+            margin-top: 0; /* No top margin for the first sub-section */
+        }
+
+        .experience-education .entry {
+            background-color: var(--white-color);
+            padding: var(--spacing-medium); /* 24px */
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: var(--spacing-medium); /* 24px */
+            text-align: left;
+        }
+
+        .experience-education .entry .role,
+        .experience-education .entry .degree {
+            font-size: 28px; /* H3 */
+            font-weight: 600; /* Semi-Bold */
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-extra-small); /* 8px */
+        }
+
+        .experience-education .entry .organization,
+        .experience-education .entry .institution {
+            font-size: 18px; /* Body Text */
+            font-weight: 600; /* Semi-Bold */
+            margin-bottom: var(--spacing-extra-small); /* 8px */
+        }
+
+        .experience-education .entry .dates,
+        .experience-education .entry .graduation-date {
+            font-size: 14px; /* Small Text */
+            color: var(--accent-color);
+            margin-bottom: var(--spacing-medium); /* 24px */
+        }
+
+        .experience-education .entry ul {
+            list-style-type: disc;
+            margin-left: var(--spacing-medium); /* 24px */
+            padding: 0;
+        }
+
+        .experience-education .entry ul li {
+            font-size: 16px; /* Body Text (smaller) */
+            margin-bottom: var(--spacing-extra-small); /* 8px */
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--white-color);
+            text-align: center;
+        }
+
+        .contact h2 {
+            margin-bottom: var(--spacing-medium); /* 24px */
+        }
+
+        .contact .section-description {
+            max-width: 600px;
+            margin: 0 auto var(--spacing-large) auto; /* 32px bottom margin */
+        }
+
+        .contact .contact-content {
+            display: flex;
+            gap: var(--spacing-large); /* 32px */
+            margin-top: var(--spacing-large);
+            text-align: left; /* Form and direct contacts are left aligned */
+        }
+
+        .contact .contact-form {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-medium); /* 24px */
+        }
+
+        .contact .contact-form label {
+            font-weight: 600; /* Semi-Bold */
+            margin-bottom: var(--spacing-extra-small);
+            display: block; /* Ensure label is on its own line */
+        }
+        .contact .contact-form .form-group {
+            margin-bottom: var(--spacing-extra-small);
+        }
+
+        .contact .contact-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .contact .contact-form .btn-primary {
+            width: fit-content; /* Only take content width */
+            margin-top: var(--spacing-small);
+        }
+
+        .contact .direct-contact {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-medium); /* 24px */
+            justify-content: flex-start; /* Align items to the top */
+        }
+
+        .contact .direct-contact a {
+            font-size: 18px; /* Body Text */
+            color: var(--text-dark-neutral);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-small); /* 16px */
+            text-decoration: none; /* Remove underline by default */
+        }
+
+        .contact .direct-contact a:hover {
+            color: var(--primary-color);
+            text-decoration: none; /* Keep no underline for icon links */
+        }
+        .contact .direct-contact a svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--primary-color);
+            flex-shrink: 0; /* Prevent icon from shrinking */
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--text-dark-neutral);
+            color: var(--subtle-gray);
+            padding-top: var(--spacing-x-large); /* 80px */
+            padding-bottom: var(--spacing-x-large); /* 80px */
+        }
+
+        .footer .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-copyright {
+            font-size: 14px; /* Small Text */
+            margin-right: var(--spacing-large); /* 32px */
+            margin-bottom: 0; /* Reset default margin */
+        }
+
+        .footer-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-small); /* 16px */
+        }
+
+        .footer-nav ul li a {
+            font-size: 14px; /* Small Text */
+            color: var(--subtle-gray);
+            text-decoration: none;
+        }
+
+        .footer-nav ul li a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--spacing-medium); /* 24px */
+        }
+
+        .social-links a {
+            color: var(--subtle-gray);
+            width: 24px;
+            height: 24px;
+            display: flex; /* For centering SVG if it's not exactly 24x24 */
+            justify-content: center;
+            align-items: center;
+            text-decoration: none; /* Remove underline from social icons */
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-links svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor; /* Use current text color for SVG */
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1024px) {
+            h1 {
+                font-size: 48px;
+            }
+            h2 {
+                font-size: 34px;
+            }
+            h3 {
+                font-size: 26px;
+            }
+            p {
+                font-size: 17px;
+            }
+            .header .logo {
+                font-size: 24px;
+            }
+            .header .main-nav ul li a {
+                font-size: 15px;
+            }
+            .hero-section .headshot {
+                width: 200px;
+                height: 200px;
+            }
+            .hero-section .text-content h1 {
+                font-size: 48px;
+            }
+            .hero-section .text-content .subtitle {
+                font-size: 24px;
+            }
+            .projects .project-card h3 {
+                font-size: 22px;
+            }
+            .experience-education .entry .role,
+            .experience-education .entry .degree {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding-left: var(--spacing-small); /* 16px tablet/mobile */
+                padding-right: var(--spacing-small); /* 16px tablet/mobile */
+            }
+            h1 {
+                font-size: 40px;
+            }
+            h2 {
+                font-size: 30px;
+            }
+            h3 {
+                font-size: 22px;
+            }
+            body, p {
+                font-size: 16px;
+            }
+            .btn {
+                font-size: 15px;
+                padding: 10px 20px;
+            }
+            .btn-secondary {
+                padding: 8px 18px;
+            }
+
+            /* Mobile Navigation */
+            .header .main-nav {
+                display: none; /* Hidden by default */
+                flex-direction: column;
+                position: absolute;
+                top: 70px; /* Below header */
+                left: 0;
+                width: 100%;
+                background-color: var(--white-color);
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                z-index: 999;
+                padding-bottom: var(--spacing-medium);
+                overflow-y: auto;
+                height: calc(100vh - 70px);
+            }
+            .header .main-nav.active {
+                display: flex;
+            }
+            .header .main-nav ul {
+                flex-direction: column;
+                width: 100%;
+                gap: var(--spacing-small);
+                padding-top: var(--spacing-medium);
+            }
+            .header .main-nav ul li {
+                width: 100%;
+                text-align: center;
+            }
+            .header .main-nav ul li a, .header .main-nav ul li .btn {
+                display: block;
+                padding: var(--spacing-small) 0;
+                width: calc(100% - var(--spacing-large)); /* Adjust for inner container padding */
+                margin: 0 auto;
+            }
+            .header .main-nav ul li .btn {
+                margin-top: var(--spacing-small);
+            }
+            .hamburger-menu {
+                display: block;
+            }
+            
+            /* Hero Section Mobile */
+            .hero-section .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-section .text-content h1 {
+                font-size: 40px;
+            }
+            .hero-section .text-content .subtitle {
+                font-size: 22px;
+            }
+            .hero-section .buttons-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            /* About Me Mobile */
+            .about-me .content-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+            .about-me .profile-photo {
+                margin: 0 auto var(--spacing-medium) auto; /* Center image and add bottom margin */
+            }
+            .about-me h2 {
+                text-align: center;
+            }
+
+            /* Skills Mobile */
+            .skills .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .skills .skill-category {
+                text-align: center; /* Center category titles for mobile */
+            }
+
+            /* Projects Mobile */
+            .projects .project-grid {
+                grid-template-columns: 1fr;
+            }
+            .projects .project-card {
+                text-align: center; /* Center project card content */
+            }
+            .projects .project-actions {
+                justify-content: center; /* Center buttons */
+            }
+
+            /* Experience & Education Mobile */
+            .experience-education .sub-section h3 {
+                text-align: center; /* Center sub-titles */
+            }
+            .experience-education .entry {
+                text-align: center;
+            }
+            .experience-education .entry ul {
+                text-align: left; /* Keep bullet points left-aligned */
+                margin-left: var(--spacing-medium);
+                display: inline-block; /* Helps with centering block content */
+            }
+
+            /* Contact Mobile */
+            .contact .contact-content {
+                flex-direction: column;
+            }
+            .contact .contact-form .btn-primary {
+                width: 100%; /* Full width on mobile */
+            }
+            .contact .direct-contact a {
+                justify-content: center; /* Center icons and text */
+            }
+            .contact h2 {
+                text-align: center;
+            }
+
+            /* Footer Mobile */
+            .footer .container {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+            .footer-copyright {
+                margin-bottom: var(--spacing-small);
+                margin-right: 0;
+            }
+            .footer-nav ul {
+                justify-content: center;
+                margin-bottom: var(--spacing-small);
+            }
+            .social-links {
+                margin-bottom: var(--spacing-small);
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 32px;
+            }
+            h2 {
+                font-size: 26px;
+            }
+            h3 {
+                font-size: 20px;
+            }
+            body, p {
+                font-size: 15px;
+            }
+            .btn {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+            .card {
+                padding: var(--spacing-medium); /* 24px */
+            }
+            .hero-section .text-content h1 {
+                font-size: 32px;
+            }
+            .hero-section .text-content .subtitle {
+                font-size: 18px;
+            }
+            .hero-section .headshot {
+                width: 150px;
+                height: 150px;
+            }
+            .experience-education .entry .role,
+            .experience-education .entry .degree {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ================== Header ================== -->
+    <header class="header" id="home">
+        <div class="container">
+            <a href="#home" class="logo">[Your Name] - AI/ML Engineer</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience-education">Experience & Education</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="path/to/your-resume.pdf" target="_blank" class="btn btn-secondary">Download Resume</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger-menu" aria-label="Open navigation menu">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 6H20V8H4V6ZM4 11H20V13H4V11ZM4 16H20V18H4V16Z"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- ================== Hero Section ================== -->
+    <section class="hero-section">
+        <div class="container hero-content">
+            <img src="path/to/your-headshot.webp" alt="[Your Name] Professional Headshot" class="headshot">
+            <div class="text-content">
+                <h1>[Your Full Name]</h1>
+                <p class="subtitle">AI/ML Engineer | Data Scientist | Innovating with Intelligent Systems</p>
+                <p class="value-proposition">Passionate about building scalable AI solutions and extracting actionable insights from complex data.</p>
+                <div class="buttons-container">
+                    <a href="#projects" class="btn btn-primary">View My Projects</a>
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank" class="btn btn-secondary">Connect on LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================== About Me Section ================== -->
+    <section class="about-me" id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="content-wrapper">
+                <img src="path/to/professional-photo.webp" alt="[Your Name] professional photo" class="profile-photo">
+                <p class="bio">John Doe is an enthusiastic AI/ML Engineer with a solid foundation in machine learning, data science, and software development. He is passionate about leveraging data-driven insights to build intelligent systems that solve real-world problems. With a keen interest in natural language processing and computer vision, John is eager to contribute to innovative projects and grow his expertise in the dynamic field of artificial intelligence.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================== Skills Section ================== -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <p class="section-description">My toolkit includes expertise in the following areas:</p>
+            <div class="skills-grid">
+                <article class="card skill-category">
+                    <h3>Programming Languages</h3>
+                    <ul class="skill-list">
+                        <li>Python</li>
+                        <li>R</li>
+                        <li>SQL</li>
+                        <li>Java</li>
+                    </ul>
+                </article>
+                <article class="card skill-category">
+                    <h3>ML Frameworks</h3>
+                    <ul class="skill-list">
+                        <li>TensorFlow</li>
+                        <li>PyTorch</li>
+                        <li>Scikit-learn</li>
+                        <li>Keras</li>
+                    </ul>
+                </article>
+                <article class="card skill-category">
+                    <h3>Data Science Libraries</h3>
+                    <ul class="skill-list">
+                        <li>Pandas</li>
+                        <li>NumPy</li>
+                        <li>Matplotlib</li>
+                        <li>Seaborn</li>
+                    </ul>
+                </article>
+                <article class="card skill-category">
+                    <h3>Cloud Platforms</h3>
+                    <ul class="skill-list">
+                        <li>AWS (Sagemaker, EC2, S3)</li>
+                        <li>Google Cloud Platform (Vertex AI)</li>
+                        <li>Azure ML</li>
+                    </ul>
+                </article>
+                <article class="card skill-category">
+                    <h3>Databases & Big Data</h3>
+                    <ul class="skill-list">
+                        <li>PostgreSQL</li>
+                        <li>MongoDB</li>
+                        <li>Hadoop</li>
+                        <li>Spark</li>
+                    </ul>
+                </article>
+                <article class="card skill-category">
+                    <h3>Tools & Version Control</h3>
+                    <ul class="skill-list">
+                        <li>Git</li>
+                        <li>Docker</li>
+                        <li>Jupyter</li>
+                        <li>VS Code</li>
+                    </ul>
+                </article>
+                <article class="card skill-category">
+                    <h3>Specializations</h3>
+                    <ul class="skill-list">
+                        <li>Natural Language Processing (NLP)</li>
+                        <li>Computer Vision</li>
+                        <li>Reinforcement Learning</li>
+                        <li>MLOps</li>
+                        <li>Data Visualization</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================== Projects Section ================== -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2>My Projects</h2>
+            <p class="section-description">A selection of my AI/ML projects, demonstrating my problem-solving abilities and technical application.</p>
+            <div class="project-grid">
+                <article class="card project-card">
+                    <img src="path/to/project-thumbnail-1.webp" alt="Visual representation of Project Delta: Predictive Analytics Dashboard" loading="lazy">
+                    <h3>Project Delta: Predictive Analytics Dashboard</h3>
+                    <p class="project-description">Developed a machine learning model to predict customer churn, achieving 92% accuracy using a Random Forest classifier.</p>
+                    <div class="project-tags">
+                        <span>#PredictiveAnalytics</span>
+                        <span>#MachineLearning</span>
+                        <span>#Python</span>
+                        <span>#ScikitLearn</span>
+                    </div>
+                    <div class="project-actions">
+                        <a href="#project-delta-details" class="btn btn-primary">View Details</a>
+                        <a href="https://github.com/yourprofile/project-delta" target="_blank" class="btn btn-secondary">GitHub Repository</a>
+                    </div>
+                </article>
+                <article class="card project-card">
+                    <img src="path/to/project-thumbnail-2.webp" alt="Visual representation of Project Echo: Real-time Object Detection" loading="lazy">
+                    <h3>Project Echo: Real-time Object Detection</h3>
+                    <p class="project-description">Implemented a real-time object detection system using YOLOv5 and PyTorch for a custom dataset, reaching 60 FPS on a GPU.</p>
+                    <div class="project-tags">
+                        <span>#ComputerVision</span>
+                        <span>#DeepLearning</span>
+                        <span>#PyTorch</span>
+                        <span>#YOLO</span>
+                    </div>
+                    <div class="project-actions">
+                        <a href="#project-echo-details" class="btn btn-primary">View Details</a>
+                        <a href="https://github.com/yourprofile/project-echo" target="_blank" class="btn btn-secondary">GitHub Repository</a>
+                        <a href="https://livedemo.com/project-echo" target="_blank" class="btn btn-secondary">Live Demo</a>
+                    </div>
+                </article>
+                <article class="card project-card">
+                    <img src="path/to/project-thumbnail-3.webp" alt="Visual representation of Project Foxtrot: NLP Chatbot" loading="lazy">
+                    <h3>Project Foxtrot: NLP Chatbot</h3>
+                    <p class="project-description">Designed and developed an intent-based chatbot for customer support using Rasa framework, reducing response times by 30%.</p>
+                    <div class="project-tags">
+                        <span>#NLP</span>
+                        <span>#Chatbot</span>
+                        <span>#Rasa</span>
+                        <span>#NLU</span>
+                    </div>
+                    <div class="project-actions">
+                        <a href="#project-foxtrot-details" class="btn btn-primary">View Details</a>
+                        <a href="https://github.com/yourprofile/project-foxtrot" target="_blank" class="btn btn-secondary">GitHub Repository</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================== Experience & Education Section ================== -->
+    <section class="experience-education" id="experience-education">
+        <div class="container">
+            <h2>Experience & Education</h2>
+
+            <div class="sub-section">
+                <h3>Professional Experience</h3>
+                <article class="entry">
+                    <p class="role">AI Research Intern</p>
+                    <p class="organization">Tech Innovators Inc.</p>
+                    <p class="dates">May 2022 – Aug 2022 | San Francisco, CA</p>
+                    <ul>
+                        <li>Developed a novel deep learning model for anomaly detection in sensor data using TensorFlow, achieving a 15% reduction in false positives.</li>
+                        <li>Implemented data augmentation strategies that improved model robustness and generalized performance across diverse datasets.</li>
+                        <li>Collaborated with a team of senior engineers on deploying models into production environment, utilizing Docker for containerization.</li>
+                    </ul>
+                </article>
+                <article class="entry">
+                    <p class="role">Machine Learning Teaching Assistant</p>
+                    <p class="organization">University of Technology</p>
+                    <p class="dates">Sept 2021 – May 2022 | Anytown, State</p>
+                    <ul>
+                        <li>Assisted students with understanding complex ML algorithms (e.g., SVMs, Neural Networks) and debugging Python code.</li>
+                        <li>Conducted weekly review sessions and provided tailored feedback on assignments and projects.</li>
+                        <li>Contributed to the development of new course materials and practical exercises.</li>
+                    </ul>
+                </article>
+            </div>
+
+            <div class="sub-section">
+                <h3>Education</h3>
+                <article class="entry">
+                    <p class="degree">M.S. in Computer Science (AI/ML Specialization)</p>
+                    <p class="institution">University of Technology</p>
+                    <p class="graduation-date">May 2023</p>
+                    <ul>
+                        <li>Relevant Coursework: Deep Learning, Natural Language Processing, Advanced Machine Learning, Statistical Modeling</li>
+                        <li>Honors: Dean's List (2021, 2022)</li>
+                        <li>Thesis: "Optimizing Transformer Models for Low-Resource Language Translation"</li>
+                    </ul>
+                </article>
+                <article class="entry">
+                    <p class="degree">B.S. in Data Science</p>
+                    <p class="institution">State University</p>
+                    <p class="graduation-date">May 2021</p>
+                    <ul>
+                        <li>Relevant Coursework: Data Structures, Algorithms, Probability and Statistics, Big Data Analytics</li>
+                        <li>Awards: Research Grant Recipient for "Sentiment Analysis on Social Media Data"</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================== Contact Section ================== -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p class="section-description">I'm always open to new opportunities and collaborations. Feel free to reach out!</p>
+            <div class="contact-content">
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" class="form-input" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="your.email@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" class="form-input" placeholder="Subject of your message" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" class="form-input" placeholder="Your message here..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+                <div class="direct-contact">
+                    <a href="mailto:your.professional.email@example.com">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 6C22 5.44772 21.5523 5 21 5H3C2.44772 5 2 5.44772 2 6V18C2 18.5523 2.44772 19 3 19H21C21.5523 19 22 18.5523 22 18V6ZM20 7.23859L12.072 14.3385C12.0286 14.3785 11.9714 14.3785 11.928 14.3385L4 7.23859V17H20V7.23859ZM12 12.8711L20.451 5H3.549L12 12.8711Z"></path></svg>
+                        your.professional.email@example.com
+                    </a>
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 3H5C3.895 3 3 3.895 3 5V19C3 20.105 3.895 21 5 21H19C20.105 21 21 20.105 21 19V5C21 3.895 20.105 3 19 3ZM8 17H5V9H8V17ZM6.5 7.75C5.67157 7.75 5 7.07843 5 6.25C5 5.42157 5.67157 4.75 6.5 4.75C7.32843 4.75 8 5.42157 8 6.25C8 7.07843 7.32843 7.75 6.5 7.75ZM19 17H16V12.7143C16 11.802 15.275 11 14.375 11C13.475 11 12.75 11.802 12.75 12.7143V17H9.75V9H12.75V10.1429C13.292 9.42857 14.156 9 15.0625 9C16.928 9 19 10.9737 19 12.7143V17Z"></path></svg>
+                        LinkedIn Profile
+                    </a>
+                    <a href="https://github.com/yourprofile" target="_blank">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.37 0 0 5.37 0 12C0 17.6 3.438 22.32 8.205 24C8.797 24.11 8.985 23.73 8.985 23.47C8.985 23.23 8.977 22.51 8.977 21.73C5.613 22.42 4.907 20.9 4.907 20.9C4.35 19.53 3.65 19.18 3.65 19.18C2.535 18.41 3.737 18.42 3.737 18.42C4.968 18.52 5.61 19.5 5.61 19.5C6.61 21.2 8.16 20.7 8.79 20.4C8.9 19.64 9.215 19.18 9.55 18.91C6.72 18.61 3.76 17.5 3.76 12.43C3.76 11 4.27 9.87 5.105 8.97C4.978 8.61 4.54 7.37 5.21 5.68C5.21 5.68 6.255 5.35 8.96 7.22C9.96 6.94 11 6.8 12 6.8C13 6.8 14.04 6.94 15.04 7.22C17.745 5.35 18.79 5.68 18.79 5.68C19.46 7.37 19.022 8.61 18.895 8.97C19.73 9.87 20.24 11 20.24 12.43C20.24 17.51 17.27 18.61 14.44 18.91C14.71 19.14 14.975 19.59 14.975 20.27C14.975 21.25 14.967 22.04 14.967 22.31C14.967 22.57 15.155 22.95 15.745 22.84C20.51 21.11 24 16.39 24 10.74C24 4.81 18.63 0 12 0Z"></path></svg>
+                        GitHub Profile
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================== Footer ================== -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-copyright">Copyright © 2023 John Doe. All rights reserved.</p>
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn Profile">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 3H5C3.895 3 3 3.895 3 5V19C3 20.105 3.895 21 5 21H19C20.105 21 21 20.105 21 19V5C21 3.895 20.105 3 19 3ZM8 17H5V9H8V17ZM6.5 7.75C5.67157 7.75 5 7.07843 5 6.25C5 5.42157 5.67157 4.75 6.5 4.75C7.32843 4.75 8 5.42157 8 6.25C8 7.07843 7.32843 7.75 6.5 7.75ZM19 17H16V12.7143C16 11.802 15.275 11 14.375 11C13.475 11 12.75 11.802 12.75 12.7143V17H9.75V9H12.75V10.1429C13.292 9.42857 14.156 9 15.0625 9C16.928 9 19 10.9737 19 12.7143V17Z"></path></svg>
+                </a>
+                <a href="https://github.com/yourprofile" target="_blank" aria-label="GitHub Profile">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.37 0 0 5.37 0 12C0 17.6 3.438 22.32 8.205 24C8.797 24.11 8.985 23.73 8.985 23.47C8.985 23.23 8.977 22.51 8.977 21.73C5.613 22.42 4.907 20.9 4.907 20.9C4.35 19.53 3.65 19.18 3.65 19.18C2.535 18.41 3.737 18.42 3.737 18.42C4.968 18.52 5.61 19.5 5.61 19.5C6.61 21.2 8.16 20.7 8.79 20.4C8.9 19.64 9.215 19.18 9.55 18.91C6.72 18.61 3.76 17.5 3.76 12.43C3.76 11 4.27 9.87 5.105 8.97C4.978 8.61 4.54 7.37 5.21 5.68C5.21 5.68 6.255 5.35 8.96 7.22C9.96 6.94 11 6.8 12 6.8C13 6.8 14.04 6.94 15.04 7.22C17.745 5.35 18.79 5.68 18.79 5.68C19.46 7.37 19.022 8.61 18.895 8.97C19.73 9.87 20.24 11 20.24 12.43C20.24 17.51 17.27 18.61 14.44 18.91C14.71 19.14 14.975 19.59 14.975 20.27C14.975 21.25 14.967 22.04 14.967 22.31C14.967 22.57 15.155 22.95 15.745 22.84C20.51 21.11 24 16.39 24 10.74C24 4.81 18.63 0 12 0Z"></path></svg>
+                </a>
+                <!-- Optional: Twitter, Medium if relevant -->
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger-menu');
+        const navMenu = document.querySelector('.main-nav');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', navMenu.classList.contains('active'));
+        });
+
+        // Close nav menu when a link is clicked (for mobile)
+        document.querySelectorAll('.main-nav a').forEach(item => {
+            item.addEventListener('click', () => {
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+
+        // Smooth Scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
